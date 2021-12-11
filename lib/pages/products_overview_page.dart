@@ -4,6 +4,7 @@ import 'package:shop/components/badge.dart';
 import 'package:shop/components/product_grid.dart';
 import 'package:shop/models/cart.dart';
 import 'package:shop/models/product_list.dart';
+import 'package:shop/utils/app_routes.dart';
 
 enum FilterOptions {
   favorite,
@@ -11,7 +12,7 @@ enum FilterOptions {
 }
 
 class ProductsOverviewPage extends StatelessWidget {
-  ProductsOverviewPage({Key? key}) : super(key: key);
+  const ProductsOverviewPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,9 @@ class ProductsOverviewPage extends StatelessWidget {
           ),
           Consumer<Cart>(
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.cart);
+              },
               icon: const Icon(Icons.shopping_cart),
             ),
             builder: (ctx, cart, child) => Badge(
@@ -53,7 +56,7 @@ class ProductsOverviewPage extends StatelessWidget {
           ),
         ],
       ),
-      body: ProductGrid(),
+      body: const ProductGrid(),
     );
   }
 }

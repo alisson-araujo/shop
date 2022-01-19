@@ -48,10 +48,11 @@ class ProductGridItem extends StatelessWidget {
           trailing: IconButton(
             onPressed: () {
               cart.addItem(product);
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: const Text('Produto adicionado ao carrinho!'),
-                  duration: const Duration(seconds: 1),
+                  duration: const Duration(seconds: 2),
                   action: SnackBarAction(
                     label: 'DESFAZER',
                     onPressed: () {

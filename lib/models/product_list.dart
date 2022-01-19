@@ -13,6 +13,10 @@ class ProductList with ChangeNotifier {
     return [..._items];//faz um clone sem referenciar diretamente
   }
 
+  int get itemsCount {
+    return _items.length;
+  }
+
   void showFavoriteOnly() {
     _showFavoriteOnly = true;
     notifyListeners();  //notifica os interessados
